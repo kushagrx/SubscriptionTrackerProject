@@ -1,6 +1,7 @@
 import express from 'express';
 const app = express();
 import {PORT, NODE_ENV} from './config/env.js';
+import connectToMongoDB from "./Database/mongodb.js";
 
 import authRouter from './routes/auth.route.js';
 import userRouter from './routes/user.route.js';
@@ -16,3 +17,4 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
     console.log(`API is running on port http://localhost:${PORT}`);
 });
+connectToMongoDB();
