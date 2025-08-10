@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
-const subscriptionSchema = new mongoose.Schema({
+const subscriptionSchema = new mongoose.Schema(
+    {
     name: {
         type: String,
         required: [true, 'Subscription name is required'],
@@ -28,5 +29,39 @@ const subscriptionSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Payment methods are required'],
         trim: true,
+    },
+    status:{
+        type:String,
+        required: [true, 'Status is required'],
+        enum: ['active','canceled','expired'],
+        default: 'active'
+    },
+    startDate: {
+        type: Date,
+        required: true,
+        validate: {
+            validator: (value) => value<= new Date(),
+            message: 'Invalid start date. Start date must be in the past',
+        }
+    },
+    renewalDate: {
+        type: Date,
+        required: true,
+        validate: {
+            validator: function(value) {
+                return value > this.startDate;    //this is used to refer to the model itself
+            },
+            message: 'Renewal date must be after the start date.',
+        }
+    },
+    user:{
+        type: mongoose.Schema.Types.ObjectId,      //accepting the id
+        ref: 'User',                    //by referencing the user model
+        required: true,
+        index: true,                    //to optimize the queries by indexing the user field
     }
-})
+},
+{timestamps:true});
+
+
+

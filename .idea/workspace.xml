@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a3f4e35-99de-4785-aa32-0ca660e029bd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/models/subscription.model.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/user.model.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/subscription.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/subscription.model.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +38,7 @@
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
@@ -61,7 +61,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-WS-251.27812.50" />
+        <option value="bundled-js-predefined-d6986cc7102b-e03c56caf84a-JavaScript-WS-252.23892.411" />
       </set>
     </attachedChunks>
   </component>
@@ -78,7 +78,12 @@
       <workItem from="1754311179246" duration="310000" />
       <workItem from="1754479419733" duration="2717000" />
       <workItem from="1754583896731" duration="3156000" />
-      <workItem from="1754637927962" duration="2959000" />
+      <workItem from="1754637927962" duration="3070000" />
+      <workItem from="1754649622927" duration="5000" />
+      <workItem from="1754746163054" duration="42000" />
+      <workItem from="1754829762657" duration="483000" />
+      <workItem from="1754830362524" duration="100000" />
+      <workItem from="1754830474376" duration="1555000" />
     </task>
     <servers />
   </component>
