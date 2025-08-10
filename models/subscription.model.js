@@ -27,7 +27,7 @@ const subscriptionSchema = new mongoose.Schema(
     },
     paymentMethod: {
         type: String,
-        required: [true, 'Payment methods are required'],
+        required: [true, 'Payment method is required'],
         trim: true,
     },
     status:{
@@ -46,15 +46,15 @@ const subscriptionSchema = new mongoose.Schema(
     },
     renewalDate: {
         type: Date,
-        required: true,
+        required: false,                //Renewal date is optional
         validate: {
-            validator: function(value) {
-                return value > this.startDate;    //this is used to refer to the model itself
+            validator: function (value) {
+                return !value || value > this.startDate;
             },
             message: 'Renewal date must be after the start date.',
         }
     },
-    user:{
+     user:{
         type: mongoose.Schema.Types.ObjectId,      //accepting the id
         ref: 'User',                    //by referencing the user model
         required: true,
