@@ -5,7 +5,7 @@ const subscriptionSchema = new mongoose.Schema(
         type: String,
         required: [true, 'Subscription name is required'],
         minlength: 5,
-        maxlength: 5,
+        maxlength: 50,
     },
     price:{
         type: Number,
@@ -19,7 +19,7 @@ const subscriptionSchema = new mongoose.Schema(
     },
     frequency: {
         type: String,
-        enum: ['daily', 'weekly', 'monthly'],
+        enum: ['daily', 'weekly', 'monthly', 'yearly'],
     },
     category: {
         type: String,
@@ -65,25 +65,25 @@ const subscriptionSchema = new mongoose.Schema(
 
 //Auto calculate the renewal date in case its missing. This function will do that
 subscriptionSchema.pre('save', function (next) {
-    if(!this.renewalDate){
-        const renewalPeriods={
-            daily:1,
-            weekly:7,
-            monthly:31,
-            yearly:365,
+    if (!this.renewalDate) {
+        const renewalPeriods = {
+            daily: 1,
+            weekly: 7,
+            monthly: 31,
+            yearly: 365
         };
 
-        this.renewalDate=new Date(this.startDate);
-        this.renewalDate.setDate(this.renewalDate.getDate() + renewalPeriods[this.frequency]);
-
+        if (renewalPeriods[this.frequency]) {
+            this.renewalDate = new Date(this.startDate);
+            this.renewalDate.setDate(this.renewalDate.getDate() + renewalPeriods[this.frequency]);
+        }
     }
-    //Auto updates the status if renewal date has passed
 
-    if(this.renewalDate<new Date()){
+    if (this.renewalDate < new Date()) {
         this.status = 'expired';
     }
     next();
-})
+});
 
 const Subscription = mongoose.model('Subscription',subscriptionSchema);
 export default Subscription;
