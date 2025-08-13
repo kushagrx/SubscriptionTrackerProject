@@ -2,7 +2,7 @@ import express from 'express';
 const app = express();
 import {PORT, NODE_ENV} from './config/env.js';
 import connectToMongoDB from "./Database/mongodb.js";
-import errorMiddleware from "./middlewares/errorMiddleware.js";
+import errorMiddleware from "./middlewares/error.middleware.js";
 
 import authRouter from './routes/auth.route.js';
 import userRouter from './routes/user.route.js';
