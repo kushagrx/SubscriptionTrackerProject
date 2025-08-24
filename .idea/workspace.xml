@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a3f4e35-99de-4785-aa32-0ca660e029bd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/config/arcjet.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middlewares/arcjet.middleware.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.development.local" beforeDir="false" afterPath="$PROJECT_DIR$/.env.development.local" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/env.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/env.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/arcjet.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/arcjet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middlewares/arcjet.middleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/arcjet.middleware.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +93,7 @@
       <workItem from="1755423364827" duration="9000" />
       <workItem from="1755603851020" duration="3079000" />
       <workItem from="1755688930830" duration="3349000" />
-      <workItem from="1755777606531" duration="1852000" />
+      <workItem from="1755777606531" duration="3080000" />
     </task>
     <servers />
   </component>

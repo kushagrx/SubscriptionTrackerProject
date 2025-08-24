@@ -2,7 +2,7 @@ import arcjet from "@arcjet/node";
 import {shield,detectBot,tokenBucket} from "@arcjet/node";
 import {ARCJET_KEY} from "./env.js";
 
-export const aj = arcjet({
+const aj = arcjet({
     key: ARCJET_KEY,
     rules: [
         shield({ mode: "LIVE" }),
@@ -21,3 +21,5 @@ export const aj = arcjet({
         }),
     ],
 });
+
+export default aj;
