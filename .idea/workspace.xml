@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a3f4e35-99de-4785-aa32-0ca660e029bd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/arcjet.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/arcjet.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middlewares/arcjet.middleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/arcjet.middleware.js" afterDir="false" />
-    </list>
+    <list default="true" id="6a3f4e35-99de-4785-aa32-0ca660e029bd" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -97,6 +92,7 @@
       <workItem from="1756033505571" duration="4264000" />
       <workItem from="1756103692844" duration="617000" />
       <workItem from="1756537949987" duration="3357000" />
+      <workItem from="1756548089783" duration="7000" />
     </task>
     <servers />
   </component>

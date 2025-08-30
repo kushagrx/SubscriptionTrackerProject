@@ -4,15 +4,32 @@ const arcjetMiddleware = async (req, res, next) => {
     try {
         console.log(`Arcjet: Processing request to ${req.path} from ${req.get('User-Agent')}`);
         
-        const decision = await aj.protect(req);
+        // Create a clean request object for Arcjet
+        const arcjetRequest = {
+            ip: req.ip || req.connection.remoteAddress || req.socket.remoteAddress || '127.0.0.1',
+            method: req.method,
+            path: req.path,
+            headers: {
+                'user-agent': req.get('User-Agent') || '',
+                'host': req.get('Host') || '',
+                'content-type': req.get('Content-Type') || '',
+                'authorization': req.get('Authorization') || '',
+            },
+            body: req.body,
+            query: req.query,
+        };
+        
+        console.log(`Arcjet: Request details - IP: ${arcjetRequest.ip}, Method: ${arcjetRequest.method}`);
+        
+        const decision = await aj.protect(arcjetRequest);
         
         console.log(`Arcjet: Decision - ${decision.isDenied() ? 'DENIED' : 'ALLOWED'}`);
         
         if (decision.isDenied()) {
-            console.log(`Arcjet: Request denied - ${decision.reason}`);
+            console.log(`🚫 Arcjet: Request denied - ${decision.reason}`);
             
-            if (decision.reason.isRateLimit()) {
-                console.log(`Arcjet: RATE LIMIT HIT - ${decision.reason}`);
+            if (decision.reason && typeof decision.reason === 'object' && decision.reason.isRateLimit && decision.reason.isRateLimit()) {
+                console.log(`🚫 Arcjet: RATE LIMIT HIT - ${decision.reason}`);
                 return res.status(429).json({
                     error: "Rate limit reached",
                     retryAfter: decision.reason.retryAfter,
@@ -26,17 +43,14 @@ const arcjetMiddleware = async (req, res, next) => {
             });
         }
         
-        console.log(`Arcjet: Request allowed`);
+        console.log(`✅ Arcjet: Request allowed`);
         next();
     }
     catch (error) {
-        console.error(`Arcjet Middleware Error: ${error.message}`);
-        if (process.env.NODE_ENV === 'development') {
-            console.log('Arcjet: Allowing request through due to development mode');
-            next();
-        } else {
-            next(error);
-        }
+        console.error(`❌ Arcjet Middleware Error: ${error.message}`);
+        console.error(`❌ Error stack: ${error.stack}`);
+        // Let the error propagate instead of allowing requests through
+        next(error);
     }
 }
 

@@ -5,21 +5,19 @@ console.log('🔧 Arcjet Configuration:');
 console.log(`   Environment: ${NODE_ENV}`);
 console.log(`   Arcjet Key: ${ARCJET_KEY ? 'Present' : 'Missing'}`);
 
-// Create Arcjet instance with explicit environment
 const aj = arcjet({
     key: ARCJET_KEY,
-    environment: NODE_ENV,
     rules: [
         tokenBucket({
             mode: "LIVE",
-            refillRate: 1, // 1 request
-            interval: 5,   // per 5 seconds
-            capacity: 2,   // with max 2 requests burst
+            refillRate: 2, // 2 requests
+            interval: 10,  // per 10 seconds
+            capacity: 3,   // with max 3 requests burst
         }),
     ],
 });
 
-console.log('✅ Arcjet configured with LIVE rate limiting only');
-console.log('   Rate limit: 1 request per 5 seconds, max 2 burst');
+console.log('✅ Arcjet configured with LIVE rate limiting');
+console.log('   Rate limit: 2 requests per 10 seconds, max 3 burst');
 
 export default aj;
