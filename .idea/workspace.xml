@@ -64,7 +64,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-e03c56caf84a-JavaScript-WS-252.23892.411" />
+        <option value="bundled-js-predefined-d6986cc7102b-b598e85cdad2-JavaScript-WS-252.25557.126" />
       </set>
     </attachedChunks>
   </component>
@@ -94,6 +94,9 @@
       <workItem from="1755603851020" duration="3079000" />
       <workItem from="1755688930830" duration="3349000" />
       <workItem from="1755777606531" duration="3080000" />
+      <workItem from="1756033505571" duration="4264000" />
+      <workItem from="1756103692844" duration="617000" />
+      <workItem from="1756537949987" duration="1749000" />
     </task>
     <servers />
   </component>

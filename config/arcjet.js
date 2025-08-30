@@ -1,6 +1,5 @@
-import arcjet from "@arcjet/node";
-import {shield,detectBot,tokenBucket} from "@arcjet/node";
-import {ARCJET_KEY} from "./env.js";
+import arcjet, { shield, detectBot, tokenBucket } from "@arcjet/node";
+import { ARCJET_KEY } from "./env.js";
 
 const aj = arcjet({
     key: ARCJET_KEY,
@@ -10,14 +9,15 @@ const aj = arcjet({
             mode: "LIVE",
             allow: [
                 "CATEGORY:SEARCH_ENGINE",
+                "AGENT:PostmanRuntime/7.45.0",
             ],
         }),
-        // Create a token bucket rate limit
+
         tokenBucket({
             mode: "LIVE",
-            refillRate: 5, // Refill 5 tokens per interval
-            interval: 10, // Refill every 10 seconds
-            capacity: 10, // Bucket capacity of 10 tokens
+            refillRate: 5,
+            interval: 10,
+            capacity: 10,
         }),
     ],
 });
