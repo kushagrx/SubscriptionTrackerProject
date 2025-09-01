@@ -43,20 +43,22 @@ _Prerequisites_
 - Install MongoDB (local or Atlas)
 - Get an Arcjet API Key
 
-Installation
-# Clone repo
+---
+
+## Installation
+ **Clone repo**
 ```git clone https://github.com/kushagrx/subscription-tracker-api.git```
 
-# Navigate
+ **Navigate**
 ```cd subscription-tracker-api```
 
-# Install dependencies
+ **Install dependencies**
 ```npm install```
 
-# Add environment variables
-```cp .env.example .env```   # configure DB_URI, JWT_SECRET, MAIL_USER, MAIL_PASS, ARCJET_KEY
+ **Add environment variables**
+```cp .env.example .env```    configure DB_URI, JWT_SECRET, MAIL_USER, MAIL_PASS, ARCJET_KEY
 
- Run server
+ **Run server**
 ```npm start```
 
 ## API Endpoints
