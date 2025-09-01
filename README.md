@@ -1,8 +1,8 @@
-#📌 **Subscription Tracker API**
+📌 #**Subscription Tracker API**
 
 A backend system built with Node.js, Express.js, MongoDB, JWT Authentication, and Arcjet to help users track their subscriptions, manage renewals, and receive email reminders — with built-in security and rate limiting.
 
-#🚀 **Features**
+🚀 #**Features**
 
   🔑 JWT Authentication – Secure login & registration with access/refresh tokens.
 
@@ -16,7 +16,7 @@ A backend system built with Node.js, Express.js, MongoDB, JWT Authentication, an
 
   ☁️ MongoDB Storage – Persistent storage of user and subscription data.
 
-#🛠 **Tech Stack**
+🛠 #**Tech Stack**
 
   Backend: Node.js, Express.js
 
@@ -63,7 +63,7 @@ subscription-tracker-api/
  Add environment variables
 ```cp .env.example .env   # configure DB_URI, JWT_SECRET, MAIL_USER, MAIL_PASS, ARCJET_KEY```
 
-# Run server
+ Run server
 ```npm start```
 
 #🔑 **API Endpoints**
