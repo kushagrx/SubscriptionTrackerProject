@@ -1,8 +1,8 @@
-📌 **Subscription Tracker API**
+#📌 **Subscription Tracker API**
 
 A backend system built with Node.js, Express.js, MongoDB, JWT Authentication, and Arcjet to help users track their subscriptions, manage renewals, and receive email reminders — with built-in security and rate limiting.
 
-🚀 **Features**
+#🚀 **Features**
 
   🔑 JWT Authentication – Secure login & registration with access/refresh tokens.
 
@@ -16,7 +16,7 @@ A backend system built with Node.js, Express.js, MongoDB, JWT Authentication, an
 
   ☁️ MongoDB Storage – Persistent storage of user and subscription data.
 
-🛠 **Tech Stack**
+#🛠 **Tech Stack**
 
   Backend: Node.js, Express.js
 
@@ -28,7 +28,7 @@ A backend system built with Node.js, Express.js, MongoDB, JWT Authentication, an
 
   Other Tools: Postman (API testing), Git, GitHub
 
-📂 **Project Structure**
+#📂 **Project Structure**
 ```
 subscription-tracker-api/
  ┣ config/            # Database & mailer config
@@ -40,7 +40,7 @@ subscription-tracker-api/
  ┗ package.json
 ```
 
-⚡ **Getting Started**
+#⚡ **Getting Started**
   Prerequisites
 
   Install Node.js
@@ -51,22 +51,22 @@ subscription-tracker-api/
   Get an Arcjet API Key
 
 **_Installation_**
-# Clone repo
+ Clone repo
 ```git clone https://github.com/kushagrx/subscription-tracker-api.git```
 
-# Navigate
+ Navigate
 ```cd subscription-tracker-api```
 
-# Install dependencies
+ Install dependencies
 ```npm install```
 
-# Add environment variables
+ Add environment variables
 ```cp .env.example .env   # configure DB_URI, JWT_SECRET, MAIL_USER, MAIL_PASS, ARCJET_KEY```
 
 # Run server
 ```npm start```
 
-🔑 **API Endpoints**
+#🔑 **API Endpoints**
   Auth
 
   POST /api/auth/register → Register user (with hashed password)
@@ -83,13 +83,13 @@ subscription-tracker-api/
 
   DELETE /api/subscriptions/:id → Delete subscription
 
-📧 **Email Notifications**
+#📧 **Email Notifications**
 
   Uses Nodemailer to send automated reminders.
 
   Renewal reminder emails are sent X days before due date (configurable).
 
-🛡 **Arcjet Security**
+#🛡 **Arcjet Security**
 
   Bot Protection – Blocks bad bots and automated abuse.
 
@@ -99,7 +99,7 @@ subscription-tracker-api/
 
   Arcjet is integrated as Express middleware and applied to sensitive routes.
 
-🎯 **Future Improvements**
+#🎯 **Future Improvements**
 
   📱 Frontend dashboard to view/manage subscriptions.
 
@@ -107,6 +107,6 @@ subscription-tracker-api/
 
   💳 Payment gateway integration for auto-renewals.
 
-👨‍💻 **Author**
+#👨‍💻 **Author**
 
 Kushagra Bisht
