@@ -36,15 +36,12 @@ subscription-tracker-api/
  ┣ server.js          # Entry point
  ┗ package.json
 ```
-##⚡ Getting Started
-Prerequisites
+## ⚡ Getting Started
+_Prerequisites_
 
-Install Node.js
-
-Install MongoDB
- (local or Atlas)
-
-Get an Arcjet API Key
+- Install Node.js
+- Install MongoDB (local or Atlas)
+- Get an Arcjet API Key
 
 Installation
 # Clone repo
