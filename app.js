@@ -9,6 +9,7 @@ import apiLimiter from "./middlewares/rate-limit.middleware.js";
 import authRouter from './routes/auth.route.js';
 import userRouter from './routes/user.route.js';
 import subRouter from './routes/subscription.route.js';
+import workflowRouter from './routes/workflow.route.js';
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -25,6 +26,7 @@ app.use('/api', arcjetMiddleware); // Arcjet monitoring (even if rate limiting f
 app.use('/api/v1/auth',authRouter);
 app.use('/api/v1/user',userRouter);
 app.use('/api/v1/subscriptions',subRouter);
+app.use('/api/v1/workflows',workflowRouter);
 
 app.use(errorMiddleware);
 
