@@ -4,7 +4,7 @@ import Subscription from '../models/subscription.model';
 const require = createRequire(import.meta.url);
 /* We have set type to module in package.json, so we need to use createRequire 
 to import commonjs modules*/
-const { serve } = require('@upstash/workflow/express');
+const {serve} = require('@upstash/workflow/express');
 
 const REMINDERS = [7, 3, 1]; // days before renewal to send reminders
 

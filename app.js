@@ -26,7 +26,7 @@ app.use('/api', arcjetMiddleware); // Arcjet monitoring (even if rate limiting f
 app.use('/api/v1/auth',authRouter);
 app.use('/api/v1/user',userRouter);
 app.use('/api/v1/subscriptions',subRouter);
-app.use('/api/v1/workflows',workflowRouter);
+app.use('/api/v1/workflow',workflowRouter);
 
 app.use(errorMiddleware);
 
