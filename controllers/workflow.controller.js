@@ -28,7 +28,10 @@ export const sendReminders = serve(async (context) => {
             await sleepUntilReminder(context, label, reminderDate);
             await triggerReminder(context, label, subscription);
         }
-        // If reminder date already passed, it will just skip this iteration
+
+        if(dayjs().isSame(reminderDate, 'day')) {
+            await triggerReminder(context, `${daysBefore} days before reminder` , subscription);
+        }
     }
 });
 

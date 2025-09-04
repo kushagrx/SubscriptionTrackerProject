@@ -33,6 +33,5 @@ app.use(errorMiddleware);
 app.listen(PORT, () => {
     console.log(`API is running on port http://localhost:${PORT}`);
     console.log(`Environment: ${NODE_ENV}`);
-    console.log('✅ Hybrid: express-rate-limit (working) + Arcjet (monitoring)');
 });
 connectToMongoDB();
