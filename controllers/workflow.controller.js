@@ -5,7 +5,7 @@ import {sendReminderEmail} from "../utils/send-email.js";
 const require = createRequire(import.meta.url);
 const { serve } = require('@upstash/workflow/express');
 
-const REMINDERS = [7, 3, 1];
+const REMINDERS = [7, 3, 2, 1];
 
 export const sendReminders = serve(async (context) => {
     const { subscriptionId } = context.requestPayload;
@@ -25,22 +25,29 @@ export const sendReminders = serve(async (context) => {
         const label = `${daysBefore} days before reminder`;
 
         if (reminderDate.isAfter(dayjs())) {
+            // Future reminder - sleep until that date
             await sleepUntilReminder(context, label, reminderDate);
             await triggerReminder(context, label, subscription);
-        }
-
-        if(dayjs().isSame(reminderDate, 'day')) {
-            await triggerReminder(context, `${daysBefore} days before reminder` , subscription);
+        } else if (dayjs().isSame(reminderDate, 'day')) {
+            // If it's exactly today, trigger reminder immediately
+            await triggerReminder(context, label, subscription);
+        } else {
+            // Past reminder date; do nothing or optionally log skipping
+            console.log(`Skipping reminder for ${label} as date has passed`);
         }
     }
 });
 
 const fetchSubscription = async (context, subscriptionId) => {
     const subscriptionData = await Subscription.findById(subscriptionId)
-        .populate('user', 'name email') // Ensure name is populated for userName
+        .populate('user', 'name email')
         .lean();
 
-    if (subscriptionData && subscriptionData.user) {
+    if (!subscriptionData) {
+        throw new Error(`Subscription not found: ${subscriptionId}`);
+    }
+
+    if (subscriptionData.user) {
         subscriptionData.userName = subscriptionData.user.name || 'User';
     }
 
@@ -56,8 +63,12 @@ const sleepUntilReminder = async (context, label, date) => {
 
 const triggerReminder = async (context, label, subscription) => {
     return await context.run(label, async () => {
-        console.log(`Triggering ${label} reminder for user: ${subscription.user.email}`);
+        console.log(`About to send reminder email. Label: ${label}, Email: ${subscription.user?.email || "No email found"}`);
 
+        if (!subscription.user?.email) {
+            console.error("Missing user email. Skipping email send.");
+            return;
+        }
         try {
             await sendReminderEmail({
                 to: subscription.user.email,
@@ -66,7 +77,7 @@ const triggerReminder = async (context, label, subscription) => {
             });
             console.log(`Email sent successfully for ${label} reminder`);
         } catch (error) {
-            console.error(`Failed to send email for ${label} reminder:`, error);
+            console.error(`Error sending email for ${label}:`, error);
         }
     });
 };
