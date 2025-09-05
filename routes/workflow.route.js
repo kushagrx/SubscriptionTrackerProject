@@ -1,19 +1,33 @@
 import { Router } from "express";
 import { sendReminders } from "../controllers/workflow.controller.js";
-import { sendEmail } from "../config/nodemailer.js"; // Updated import path
+import { sendReminderEmail } from "../utils/send-email.js";
 
 const workflowRouter = Router();
 
 workflowRouter.post("/subscription/reminder", sendReminders);
 
-// Test email route
+// Test email route with template
 workflowRouter.post("/test-email", async (req, res) => {
     try {
-        await sendEmail({
-            to: "kushagrabisht10@gmail.com", // Using your email
-            subject: "Test Email from Subscription Tracker",
-            html: "<h1>Test Email</h1><p>This is a test email from your subscription tracker API.</p>"
+        const testSubscription = {
+            user: {
+                name: "Test User",
+                email: "kushagrabisht10@gmail.com"
+            },
+            name: "Netflix Premium",
+            renewalDate: dayjs().add(7, 'days'),
+            price: 19.99,
+            currency: "USD",
+            frequency: "monthly",
+            paymentMethod: "Credit Card"
+        };
+
+        await sendReminderEmail({
+            to: "kushagrabisht10@gmail.com",
+            type: "7 days before reminder",
+            subscription: testSubscription
         });
+
         res.status(200).json({ success: true, message: "Test email sent successfully" });
     } catch (error) {
         console.error("Email test failed:", error);
