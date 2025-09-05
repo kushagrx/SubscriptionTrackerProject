@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a3f4e35-99de-4785-aa32-0ca660e029bd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.env.development.local" beforeDir="false" afterPath="$PROJECT_DIR$/.env.development.local" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.production.local" beforeDir="false" afterPath="$PROJECT_DIR$/.env.production.local" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/env.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/env.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/nodemailer.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/nodemailer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/subscription.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/subscription.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/workflow.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/workflow.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/send-email.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/send-email.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +112,7 @@
       <workItem from="1756880921538" duration="5379000" />
       <workItem from="1756968031673" duration="3251000" />
       <workItem from="1756982871516" duration="4388000" />
-      <workItem from="1757069549049" duration="4394000" />
+      <workItem from="1757069549049" duration="4758000" />
     </task>
     <servers />
   </component>
@@ -157,10 +150,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/routes/workflow.route.js</url>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/controllers/auth.controller.js</url>
           <line>7</line>
