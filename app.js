@@ -31,7 +31,6 @@ app.use('/api/v1/workflow',workflowRouter);
 app.use(errorMiddleware);
 
 app.listen(PORT, () => {
-    console.log(`API is running on port http://localhost:${PORT}`);
-    console.log(`Environment: ${NODE_ENV}`);
+    console.log(`Server running on port ${PORT}`);
 });
 connectToMongoDB();
