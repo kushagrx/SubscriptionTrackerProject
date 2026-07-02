@@ -59,11 +59,16 @@ const subscriptionSchema = new mongoose.Schema(
         ref: 'User',                    //by referencing the user model
         required: true,
         index: true,                    //to optimize the queries by indexing the user field
+    },
+    lastNotified:{
+        type: Date,
+        default: null
     }
 },
 {timestamps:true});
 
 //Auto calculate the renewal date in case its missing. This function will do that
+// Auto calculate the renewal date in case its missing.
 subscriptionSchema.pre('save', function (next) {
     if (!this.renewalDate) {
         const renewalPeriods = {
@@ -79,11 +84,11 @@ subscriptionSchema.pre('save', function (next) {
         }
     }
 
-    if (this.renewalDate < new Date()) {
+    // Only mark expired if the status isn't already canceled
+    if (this.renewalDate < new Date() && this.status !== 'canceled') {
         this.status = 'expired';
     }
     next();
 });
-
 const Subscription = mongoose.model('Subscription',subscriptionSchema);
 export default Subscription;

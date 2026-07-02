@@ -27,4 +27,6 @@ subRouter.get('/upcoming-renewal',(req,res)=>{
     res.send({title:"Get upcoming renewals"});
 });
 
+subRouter.get('/ai-insights', authorize, getAIInsights);
+
 export default subRouter;

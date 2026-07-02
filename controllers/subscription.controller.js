@@ -1,4 +1,5 @@
 import Subscription from '../models/subscription.model.js'
+import { generateSubscriptionInsights } from '../services/ai.service.js'
 import { workflowClient } from '../config/upstash.js'
 import { SERVER_URL } from '../config/env.js'
 import { sendReminderEmail } from '../utils/send-email.js'
@@ -67,3 +68,25 @@ export const getUserSubscriptions = async (req, res, next) => {
         next(e);
     }
 }
+
+export const getAIInsights = async (req, res) => {
+    try {
+        // req.user.id comes from your existing JWT auth middleware
+        const userId = req.user._id || req.user.id; 
+        const userName = req.user.name || 'User';
+
+        // Fetch all active subscriptions belonging to this user
+        const subscriptions = await Subscription.find({ user: userId, status: 'active' });
+
+        // Pass them to our AI service
+        const insight = await generateSubscriptionInsights(subscriptions, userName);
+
+        return res.status(200).json({
+            success: true,
+            insight
+        });
+    } catch (error) {
+        console.error('Error in getAIInsights controller:', error);
+        return res.status(500).json({ success: false, message: 'Server error generating AI insights' });
+    }
+};
