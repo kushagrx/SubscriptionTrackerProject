@@ -1,4 +1,6 @@
-# 📌 Subscription Tracker API  
+# 📌 Subscription Tracker API 
+
+LIVE DEPLOYMENT: https://subscriptiontrackerproject.onrender.com/
 
 A backend system built with **Node.js, Express.js, MongoDB, JWT Authentication, and Arcjet** to help users track their subscriptions, manage renewals, and receive email reminders — with built-in security and rate limiting.  
 
