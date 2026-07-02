@@ -4,7 +4,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { JWT_EXPIRES_IN, JWT_SECRET } from "../config/env.js";
 
-// Atomic operations: ensures DB writes are all-or-nothing
+// Atomic operations: ensures DB writes are all-or-nothing (ACID Atomicity in DBMS)
 export const signUp = async (req, res, next) => {
     const session = await mongoose.startSession();
     session.startTransaction();
