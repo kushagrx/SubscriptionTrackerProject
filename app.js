@@ -2,7 +2,7 @@ import express from 'express';
 const app = express();
 import './jobs/cron.js';
 import {PORT, NODE_ENV} from './config/env.js';
-import connectToMongoDB from "./Database/mongodb.js";
+import connectToMongoDB from "./database/mongodb.js";
 import errorMiddleware from "./middlewares/error.middleware.js";
 import arcjetMiddleware from "./middlewares/arcjet.middleware.js";
 import apiLimiter from "./middlewares/rate-limit.middleware.js";

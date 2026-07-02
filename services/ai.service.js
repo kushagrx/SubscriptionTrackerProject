@@ -1,8 +1,7 @@
-import { GoogleGenAI } from '@google/generative-ai';
-import { GEMINI_API_KEY } from '../config/env.js'; // Ensure you add GEMINI_API_KEY to your env config
+import { GoogleGenerativeAI } from '@google/generative-ai';
+import { GEMINI_API_KEY } from '../config/env.js';
 
-// Initialize the Gemini client
-const ai = new GoogleGenAI({ apiKey: GEMINI_API_KEY });
+const ai = GEMINI_API_KEY ? new GoogleGenerativeAI(GEMINI_API_KEY) : null;
 
 export const generateSubscriptionInsights = async (subscriptions, userName) => {
     try {
@@ -25,13 +24,15 @@ export const generateSubscriptionInsights = async (subscriptions, userName) => {
         ${subListText}
         `;
 
-        // Call the Gemini 1.5 Flash model (perfect for fast, text-based tasks)
-        const response = await ai.models.generateContent({
-            model: 'gemini-1.5-flash',
-            contents: prompt,
-        });
+        if (!ai) {
+            return 'AI insights are unavailable because GEMINI_API_KEY is not configured.';
+        }
 
-        return response.text.trim();
+        const model = ai.getGenerativeModel({ model: 'gemini-1.5-flash' });
+        const response = await model.generateContent(prompt);
+        const text = await response.response.text();
+
+        return text.trim();
     } catch (error) {
         console.error('Error generating AI insights:', error);
         return "Unable to generate financial insights at this moment. Please try again later.";
